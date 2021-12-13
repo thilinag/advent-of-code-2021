@@ -32,47 +32,33 @@ const outputValues = data.map(note => {
 
     // for numbers with 6 segments on
     signals.filter(s => s.length === 6).forEach(signal => {
-        switch (signal.length) {
-            case 6:
-                if (!numbers[7].split('').every(s => signal.includes(s))) {
-                    // if 6 segments on and also all segments belog to #7 is  not on, 
-                    // its #6
-                    numbers[6] = signal
-                } else if (numbers[4].split('').every(s => signal.includes(s))) {
-                    // if 6 segments on and also all segments belog to #4 is on, 
-                    // its #9
-                    numbers[9] = signal
-                } else {
-                    // otherwise its #0
-                    numbers[0] = signal
-                }
-                break;
-        
-            default:
-                break;
+        if (!numbers[7].split('').every(s => signal.includes(s))) {
+            // if 6 segments on and also all segments belog to #7 is  not on, 
+            // its #6
+            numbers[6] = signal
+        } else if (numbers[4].split('').every(s => signal.includes(s))) {
+            // if 6 segments on and also all segments belog to #4 is on, 
+            // its #9
+            numbers[9] = signal
+        } else {
+            // otherwise its #0
+            numbers[0] = signal
         }
     })
 
     // for numbers with 5 segments on
     signals.filter(s => s.length === 5).forEach(signal => {
-        switch (signal.length) {
-            case 5:
-                if (signal.split('').every(s => numbers[6].split('').includes(s))) {
-                    // if 5 segments on and also all segments belog to #6, 
-                    // its #5
-                    numbers[5] = signal
-                } else if (numbers[1].split('').every(s => signal.includes(s))) {
-                    // if 5 segments on and also all segments belog to #1 is on, 
-                    // its #3
-                    numbers[3] = signal
-                } else {
-                    // otherwise its #2
-                    numbers[2] = signal
-                }
-                break;
-
-            default:
-                break;
+        if (signal.split('').every(s => numbers[6].split('').includes(s))) {
+            // if 5 segments on and also all segments belog to #6, 
+            // its #5
+            numbers[5] = signal
+        } else if (numbers[1].split('').every(s => signal.includes(s))) {
+            // if 5 segments on and also all segments belog to #1 is on, 
+            // its #3
+            numbers[3] = signal
+        } else {
+            // otherwise its #2
+            numbers[2] = signal
         }
     })
 
