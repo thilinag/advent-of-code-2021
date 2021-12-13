@@ -22,7 +22,7 @@ data.forEach((row, r) => {
 
         // if adjacent locations are larger than currenct cell, 
         // its a low point
-        if (cell, adjacentLocations.every(l => l > cell)) {
+        if (adjacentLocations.every(l => l > cell)) {
             riskLevels.push(cell + 1)
         }
     })
